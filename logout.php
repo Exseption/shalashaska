@@ -1,0 +1,29 @@
+<?php
+session_start();
+if(isset($_COOKIE['username'])){
+	setcookie('id',$check['user_id'],time()-2629800);
+	setcookie('username',$login,time()-2629800);
+	setcookie('first_name',$check['first_name'],time()-2629800);
+	setcookie('second_name',$check['second_name'],time()-2629800);
+	setcookie('surname',$check['surname'],time()-2629800);
+	setcookie('post',$check['post'],time()-2629800);
+	setcookie('email',$check['email'],time()-2629800);
+	setcookie('org_title',$check['org_title'],time()-2629800);
+	setcookie('user_group',$check['user_group'],time()-2629800);
+}
+else
+{
+    unset($_SESSION['id']);
+    unset($_SESSION['username']);
+    unset($_SESSION['first_name']);
+    unset($_SESSION['second_name']);
+    unset($_SESSION['surname']);
+    unset($_SESSION['post']);
+    unset($_SESSION['email']);
+    unset($_SESSION['org_title']);
+    unset($_SESSION['user_group']);
+    session_destroy();
+}
+header('Location:index.php');
+exit();
+?>
